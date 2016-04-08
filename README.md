@@ -10,7 +10,7 @@ provide rudimentary authorization, and to transform the data into InfluxDB
 
 ## Prerequisites
 
-* A [Go](https://golang.org/) on the target server environment.
+* A [Go](https://golang.org/) build env on the target server environment.
 * [GoDep](https://github.com/tools/godep)
 
 ## Build
