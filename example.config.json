@@ -1,0 +1,112 @@
+{
+  "oids": {
+    "load_average": [
+      {
+        "name": "1_min",
+        "oid": ".1.3.6.1.4.1.2021.10.1.3.1"
+      },
+      {
+        "name": "5_min",
+        "oid": ".1.3.6.1.4.1.2021.10.1.3.2"
+      },
+      {
+        "name": "15_min",
+        "oid": ".1.3.6.1.4.1.2021.10.1.3.3"
+      }
+    ],
+    "cpu": [
+      {
+        "name": "cpu_nice",
+        "oid": ".1.3.6.1.4.1.2021.11.51.0"
+      },
+      {
+        "name": "cpu_system",
+        "oid": ".1.3.6.1.4.1.2021.11.52.0"
+      },
+      {
+        "name": "cpu_user",
+        "oid": ".1.3.6.1.4.1.2021.11.50.0"
+      }
+    ],
+    "memory": [
+      {
+        "name": "mem_buffers",
+        "oid": ".1.3.6.1.4.1.2021.4.14.0"
+      },
+      {
+        "name": "mem_cache",
+        "oid": ".1.3.6.1.4.1.2021.4.15.0"
+      },
+      {
+        "name": "mem_free",
+        "oid": ".1.3.6.1.4.1.2021.4.6.0"
+      }
+    ],
+    "disk": [
+      {
+        "name": "/dev/sda1",
+        "oids": [
+            {
+                "oid": ".1.3.6.1.4.1.2021.9.1.8.2",
+                "name": "UsedSpace"
+            },
+            {
+                "oid": ".1.3.6.1.4.1.2021.9.1.6.2",
+                "name": "TotalSpace"
+            }
+        ]
+      }
+    ],
+    "interfaces": [
+      {
+        "name": "eth0",
+        "oids": [
+          {
+              "oid": ".1.3.6.1.2.1.2.2.1.13.2",
+              "name": "DiscardsIN"
+          },
+          {
+              "oid": ".1.3.6.1.2.1.2.2.1.19.2",
+              "name": "DiscardsOUT"
+          },
+          {
+              "oid": ".1.3.6.1.2.1.2.2.1.14.2",
+              "name": "ErrsIN"
+          },
+          {
+              "oid": ".1.3.6.1.2.1.2.2.1.17.2",
+              "name": "uPktsOUT"
+          },
+          {
+              "oid": ".1.3.6.1.2.1.31.1.1.1.10.2",
+              "name": "BytesOUT"
+          },
+          {
+              "oid": ".1.3.6.1.2.1.2.2.1.20.2",
+              "name": "ErrsOUT"
+          },
+          {
+              "oid": ".1.3.6.1.2.1.2.2.1.11.2",
+              "name": "uPktsIN"
+          },
+          {
+              "oid": ".1.3.6.1.2.1.31.1.1.1.6.2",
+              "name": "BytesIN"
+          }
+        ]
+      }
+    ]
+  },
+  "verbose": false,
+  "community": "my-snmp-community",
+  "timeout": 5,
+  "hostname": "db1-10-102-10-12",
+  "ip": "10.102.10.12",
+  "server_type": "postgres",
+  "server_sub_type": "data_node",
+  "database": "my-influxdb-database",
+  "receiver_url": "http://192.168.99.100/receive",
+  "receiver_token": "abc123"
+}
+
+
