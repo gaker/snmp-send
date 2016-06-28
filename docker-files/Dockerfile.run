@@ -1,0 +1,25 @@
+FROM busybox:ubuntu-14.04
+MAINTAINER Greg Aker <me@gregaker.net>
+RUN mkdir /etc/snmp-send/ \
+    && mkdir -p /etc/ssl/certs \
+    && mkdir -p /var/spool/cron/crontabs \
+    && mkdir -p /var/log \
+    && touch /var/log/cron.log
+
+ENV CRON_TIME "* * * * *"
+ENV SNMP_COMMUNITY "my-community"
+ENV SNMP_TIMEOUT "5"
+ENV SERVER_TYPE "docker"
+ENV INFLUX_DB "snmp_data"
+ENV RECEIVER_URL "http://192.168.99.100:3000/receiver"
+ENV RECEIVER_TOKEN "abc123"
+
+VOLUME /etc/snmp-send/
+VOLUME /etc/ssl/certs/
+
+COPY example.config.json /etc/snmp-send/example.config.json
+COPY snmp_send /bin/snmp_send
+COPY docker-entrypoint.sh /
+
+CMD [ "/docker-entrypoint.sh" ]
+

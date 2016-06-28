@@ -1,0 +1,7 @@
+
+snmp_send:
+  build:
+    dockerfile: Dockerfile 
+  volumes:
+    - ./:/go/src/github.com/gaker/snmp_send
+

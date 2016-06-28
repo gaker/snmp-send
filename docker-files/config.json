@@ -98,13 +98,13 @@
     ]
   },
   "verbose": false,
-  "community": "my-snmp-community",
-  "timeout": 5,
-  "hostname": "db1-10-102-10-12",
-  "ip": "10.102.10.12",
-  "server_type": "postgres",
-  "server_sub_type": "data_node",
-  "database": "my-influxdb-database",
-  "receiver_url": "http://192.168.99.100/receive",
-  "receiver_token": "abc123"
+  "community": "{{snmp_community}}",
+  "timeout": {{snmp_timeout}},
+  "hostname": "{{hostname}}",
+  "ip": "{{ip_addr}}",
+  "server_type": "{{server_type}}",
+  "database": "{{influx_db}}",
+  "receiver_url": "{{receiver_url}}",
+  "receiver_token": "{{receiver_token}}"
 }
+

@@ -40,3 +40,12 @@ A config file matching [the following](https://github.com/gaker/snmp-send/blob/m
 should be included on each server the binary will be deployed to.
 
 
+## Building with Docker
+
+Build into a small alpine linux container
+
+```
+$ docker build -t snmp-send-builder -f Dockerfile.build .
+$ docker run --rm snmp-send-builder | docker build -t gaker/snmp-send:latest -t gaker/snmp-send:0.1 -f Dockerfile.run -
+```
+

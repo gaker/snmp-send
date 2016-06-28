@@ -11,15 +11,10 @@ import (
 )
 
 var (
-	cmdTarget     string
 	cmdConfigFile string
 )
 
 func init() {
-	flag.StringVar(
-		&cmdTarget, "target",
-		"http://192.168.99.100:8000/receive",
-		"Where to send data to")
 	flag.StringVar(
 		&cmdConfigFile, "conf",
 		"example.config.json", "Location of config file")

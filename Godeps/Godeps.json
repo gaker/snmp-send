@@ -1,6 +1,7 @@
 {
-	"ImportPath": "github.com/gaker/snmp-send",
+	"ImportPath": "github.com/gaker/snmp_send",
 	"GoVersion": "go1.6",
+	"GodepVersion": "v74",
 	"Deps": [
 		{
 			"ImportPath": "github.com/moul/http2curl",
