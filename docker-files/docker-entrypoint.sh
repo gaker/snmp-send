@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ ! -f "/etc/snmp-send/config.json" ]; then
+if [ ! -f "/etc/snmp-send-config.json" ]; then
     echo "Creating Config file from Environment Variables"
     export IPADDR=$(ifconfig eth0 | grep "inet addr:" | cut -d ':' -f2 | cut -d " " -f1)
 
@@ -11,18 +11,18 @@ if [ ! -f "/etc/snmp-send/config.json" ]; then
         -e "s/{{server_type}}/${SERVER_TYPE}/g" \
         -e "s/{{influx_db}}/${INFLUX_DB}/g" \
         -e "s#{{receiver_url}}#${RECEIVER_URL}#g" \
-        -e "s/{{receiver_token}}/${RECEIVER_TOKEN}/g" /etc/snmp-send/example.config.json > /etc/snmp-send/config.json
+        -e "s/{{receiver_token}}/${RECEIVER_TOKEN}/g" /etc/snmp-send/example.config.json > /etc/snmp-send-config.json
 fi
 
 /sbin/cat <<EOF > /tmp/snmp-cron
-    ${CRON_TIME} /bin/snmp_send -conf=/etc/snmp-send/config.json >> /var/log/cron.log 2>&1
+    ${CRON_TIME} /bin/snmp_send -conf=/etc/snmp-send-config.json >> /var/log/cron.log 2>&1
 EOF
 
 /sbin/crontab -c /var/spool/cron/crontabs /tmp/snmp-cron 
 
 if [ "$1" == "" ]; then
     echo "Running crond"
-    cat /etc/snmp-send/config.json
+    cat /etc/snmp-send-config.json
     /sbin/crond -L /var/log/cron.log && tail -f /var/log/cron.log
 else
     eval "$@"
